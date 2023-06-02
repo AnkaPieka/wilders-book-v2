@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm";
-import { Field, ObjectType } from "type-graphql"
+import { Field, ObjectType } from "type-graphql";
 import { Grade } from "./grade";
 
 @ObjectType()
@@ -13,6 +13,6 @@ export class Skill {
   @Column()
   name: string;
 
-  @OneToMany(() => Grade, (grade) => grade.skill)
+  @OneToMany(() => Grade, (grade: { skill: any }) => grade.skill)
   public grades: Grade[];
 }

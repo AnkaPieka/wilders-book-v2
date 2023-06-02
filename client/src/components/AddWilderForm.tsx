@@ -21,22 +21,17 @@ const AddWilderForm = () => {
         variables: { name: wilderName },
       });
       console.log("Wilder added:", data.createWilder);
-      // Faites quelque chose avec les données de la mutation si nécessaire
     } catch (error) {
       console.error("Error adding wilder:", error);
-      // Gérez l'erreur de la mutation ici
     }
   };
 
   return (
     <div>
-      <input
-        value={wilderName}
-        onChange={(e) => setWilderName(e.target.value)}
-      />
+      <input value={wilderName} onChange={(e) => setWilderName(e.target.value)} />
       <br />
       <button onClick={handleAddWilder} disabled={loading}>
-        Save Wilder
+        Create wilder
       </button>
       {error && <p>Error: {error.message}</p>}
     </div>
